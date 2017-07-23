@@ -1,22 +1,33 @@
-<%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+<div class="container">
+  <div class="row">
+    <div class="Absolute-Center is-Responsive">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <div class="login_content">
+          <h1>Bienvenido</h1>
+        </div>
+        <%= form_for :session,:html => { :id => "loginForm" } ,url: session_path do |form|%>
+          <div class="form-group input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <%= form.text_field :email ,type: 'email', :class => "form-control" , :placeholder =>"Email"%>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= form.password_field :password , autofocus: true, :class => "form-control" , :placeholder =>"Contraseña"%>
+          </div>
+          <div class="form-group">
+            <%= form.submit :class => "btn btn-def btn-block" %>
+          </div>
+          <div class="form-group text-center">
+              <!-- <% if Clearance.configuration.allow_sign_up? %>
+                <%= link_to t(".sign_up"), sign_up_path %>
+              <% end %> -->
+              <%= link_to t(".forgot_password"), new_password_path %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="separator">
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="password-field">
-    <%= form.label :Contraseña %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="submit-field">
-    <%= form.submit %>
-  </div>
-
-  <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
-    <% end %>
-    <%= link_to t(".forgot_password"), new_password_path %>
-  </div>
-<% end %>
+</div>
+</div>

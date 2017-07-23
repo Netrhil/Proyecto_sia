@@ -85,6 +85,8 @@ GEM
     ffi (1.9.18)
     flot-rails (0.0.7)
       jquery-rails
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     gentelella-rails (0.1.5)
@@ -231,12 +233,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.6)
   byebug
   capybara (~> 2.13)
   clearance
   coffee-rails (~> 4.2)
+  font-awesome-rails
   gentelella-rails
   jbuilder (~> 2.5)
+  jquery-rails
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.7)

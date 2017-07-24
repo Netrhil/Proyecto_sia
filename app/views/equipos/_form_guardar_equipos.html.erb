@@ -1,0 +1,38 @@
+<% if @equipo.errors.any? %>
+   <ul>
+      <% @equipo.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+
+<%= form_for @equipo do |f| %>
+   <p>
+      <%= f.label :codequip, "Codigo del equipo de la Oficina" %>
+      <br />
+      <%= f.text_field :codequip, {:value => @codequip} %>
+   </p>
+   <p>
+      <%= f.label :marca, "marca" %>
+      <br />
+      <%= f.text_area :marca, {:value => @marca} %>
+   </p>
+   <p>
+      <%= f.label :modelo, "modelo" %>
+      <br />
+      <%= f.text_area :modelo, {:value => @modelo} %>
+   </p>
+   <p>
+      <%= f.label :descripcion, "Descripción" %>
+      <br />
+      <%= f.text_area :descripcion, {:value => @descripcion} %>
+   </p>
+   <p>
+      <%= f.label :fechacompra, "Fecha de compra" %>
+      <br />
+      <%= f.text_area :fechacompra, {:value => @fechacompra} %>
+   </p>
+   <p>
+      <%= f.submit "Enviar" %> <%= link_to "Cancelar", equipos_path %>
+   </p>
+<% end %>

@@ -1,0 +1,16 @@
+<h2> Lista de Equipos</h2>
+<p> <%= link_to "Crear nuevo equipo", new_equipos_path %> </p>
+<ul>
+   <% @equipos.each do |t| %>
+   <li>
+      <h3> <%= t.codequip %> </h3>
+      <p>
+         <%= link_to "Ver", t %>
+         |
+         <%= link_to "Editar", edit_equipos_path(t) %>
+         |
+         <%= link_to "Eliminar", t, :confirm => "Seguro desea eliminar este equipo?", :method => :delete %>
+      </p>
+   </li>
+   <% end %>
+</ul>

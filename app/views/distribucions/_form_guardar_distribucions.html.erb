@@ -1,0 +1,23 @@
+<% if @distribucion.errors.any? %>
+   <ul>
+      <% @distribucion.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+
+<%= form_for @distribucion do |f| %>
+   <p>
+      <%= f.label :nombre, "Nombre de la Oficina" %>
+      <br />
+      <%= f.text_field :nombre, {:value => @nombre} %>
+   </p>
+   <p>
+      <%= f.label :descripcion, "Descripción" %>
+      <br />
+      <%= f.text_area :descripcion, {:value => @descripcion} %>
+   </p>
+   <p>
+      <%= f.submit "Enviar" %> <%= link_to "Cancelar", distribucions_path %>
+   </p>
+<% end %>

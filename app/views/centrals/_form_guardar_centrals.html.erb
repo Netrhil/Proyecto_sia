@@ -1,0 +1,23 @@
+<% if @central.errors.any? %>
+   <ul>
+      <% @central.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+
+<%= form_for @central do |f| %>
+   <p>
+      <%= f.label :nombre, "Nombre de la Central de Costos" %>
+      <br />
+      <%= f.text_field :nombre, {:value => @nombre} %>
+   </p>
+   <p>
+      <%= f.label :descripcion, "Descripción" %>
+      <br />
+      <%= f.text_area :descripcion, {:value => @descripcion} %>
+   </p>
+   <p>
+      <%= f.submit "Enviar" %> <%= link_to "Cancelar", centrals_path %>
+   </p>
+<% end %>

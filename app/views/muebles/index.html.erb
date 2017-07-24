@@ -1,0 +1,16 @@
+h2> Lista de muebles</h2>
+<p> <%= link_to "Crear nuevo Mueble", new_muebles_path %> </p>
+<ul>
+   <% @muebles.each do |t| %>
+   <li>
+      <h3> <%= t.codmue %> </h3>
+      <p>
+         <%= link_to "Ver", t %>
+         |
+         <%= link_to "Editar", edit_muebles_path(t) %>
+         |
+         <%= link_to "Eliminar", t, :confirm => "Seguro desea eliminar este mueble?", :method => :delete %>
+      </p>
+   </li>
+   <% end %>
+</ul>

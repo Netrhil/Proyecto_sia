@@ -1,0 +1,16 @@
+<h2> Lista de OFicinas</h2>
+<p> <%= link_to "Crear nueva Oficina", new_distribucions_path %> </p>
+<ul>
+   <% @distribucions.each do |t| %>
+   <li>
+      <h3> <%= t.nombre %> </h3>
+      <p>
+         <%= link_to "Ver", t %>
+         |
+         <%= link_to "Editar", edit_distribucions_path(t) %>
+         |
+         <%= link_to "Eliminar", t, :confirm => "Seguro desea eliminar esta Oficina?", :method => :delete %>
+      </p>
+   </li>
+   <% end %>
+</ul>

@@ -1,0 +1,17 @@
+<h2> <%= @mueble.codequip %> </h2>
+<div>
+   <%= simple_format @mueble.marca %>
+</div>
+<div>
+   <%= simple_format @mueble.largo %>
+</div>
+<div>
+   <%= simple_format @mueble.ancho %>
+</div>
+<div>
+   <%= simple_format @mueble.descripcion %>
+</div>
+<div>
+   <%= simple_format @mueble.fechacompra %>
+</div>
+<p> <%= link_to "Volver", mueble_path %> </p>

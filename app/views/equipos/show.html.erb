@@ -1,0 +1,14 @@
+<h2> <%= @equipo.codequip %> </h2>
+<div>
+   <%= simple_format @equipo.marca %>
+</div>
+<div>
+   <%= simple_format @equipo.modelo %>
+</div>
+<div>
+   <%= simple_format @equipo.descripcion %>
+</div>
+<div>
+   <%= simple_format @equipo.fechacompra %>
+</div>
+<p> <%= link_to "Volver", equipo_path %> </p>

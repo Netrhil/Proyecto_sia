@@ -1,0 +1,28 @@
+<% if @encargado.errors.any? %>
+   <ul>
+      <% @encargado.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+
+<%= form_for @encargado do |f| %>
+    <p>
+      <%= f.label :rut, "Rut del Encargado" %>
+      <br />
+      <%= f.text_field :rut, {:value => @rut} %>
+   </p>
+   <p>
+      <%= f.label :nombre, "Nombre del Encargado" %>
+      <br />
+      <%= f.text_field :nombre, {:value => @nombre} %>
+   </p>
+   <p>
+      <%= f.label :apellido, "Apellido" %>
+      <br />
+      <%= f.text_area :apellido, {:value => @apellido} %>
+   </p>
+   <p>
+      <%= f.submit "Enviar" %> <%= link_to "Cancelar", encargados_path %>
+   </p>
+<% end %>

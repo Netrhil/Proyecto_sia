@@ -1,0 +1,16 @@
+<h2> Lista de Encargados</h2>
+<p> <%= link_to "Crear nuevo Encargado", new_encargados_path %> </p>
+<ul>
+   <% @encargados.each do |t| %>
+   <li>
+      <h3> <%= t.nombre %> </h3>
+      <p>
+         <%= link_to "Ver", t %>
+         |
+         <%= link_to "Editar", edit_encargados_path(t) %>
+         |
+         <%= link_to "Eliminar", t, :confirm => "Seguro desea eliminar este encargado?", :method => :delete %>
+      </p>
+   </li>
+   <% end %>
+</ul>

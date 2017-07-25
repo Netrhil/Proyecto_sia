@@ -1,6 +1,7 @@
 class CreateEquipos < ActiveRecord::Migration[5.1]
   def change
     create_table :equipos do |t|
+      t.references :distribucion
       t.string :codequip
       t.string :marca
       t.string :modelo

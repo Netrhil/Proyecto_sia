@@ -29,3 +29,5 @@
 //= require  nprogress.js
 
 //= require flash.js
+
+//= require_tree .

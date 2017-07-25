@@ -3,57 +3,52 @@ en:
   clearance:
     models:
       clearance_mailer:
-        change_password: Cambie su contraseña
+        change_password: Cambiar su contraseña
   clearance_mailer:
     change_password:
-      closing: If you didn't request this, ignore this email. Your password has
-        not been changed.
-      link_text: Change my password
-      opening: "Someone, hopefully you, requested we send you a link to change
-        your password:"
+      closing: Si no solicito esto ignore el correo. Su contraseña no ha sido modificada
+      link_text: Modificar mi contraseña
+      opening: "alguien, esperamos que usted, solicito que le enviemos un enlace para modificar su contraseña:"
   flashes:
-    failure_after_create: Bad email or password.
-    failure_after_update: Password can't be blank.
-    failure_when_forbidden: Please double check the URL or try submitting
-      the form again.
+    failure_after_create: Email o contraseña incorrecto.
+    failure_after_update: La contraseña no puede estar en blanco.
+    failure_when_forbidden: Porfavor revise la url o intente nuevamente.
     failure_when_not_signed_in: Tienes que iniciar sesión
   helpers:
     label:
       password:
-        email: Email address
+        email: Direccion de email
       password_reset:
-        password: Choose password
+        password: Cambiar contraseña
     submit:
       password:
-        submit: Reset password
+        submit: Reestablecer contraseña
       password_reset:
-        submit: Save this password
+        submit: Guardar esta contraseña
       session:
         submit: Iniciar sesión
       user:
-        create: Sign up
+        create: Registrate
   layouts:
     application:
       sign_in: Iniciar sesión
-      sign_out: Sign out
+      sign_out: Desconectarse
   passwords:
     create:
-      description: You will receive an email within the next few minutes. It
-        contains instructions for changing your password.
+      description: Recibira en los proximos minutos un correo. Este contiene las intrucciones para modificar su contraseña.
     edit:
-      description: Your password has been reset. Choose a new password below.
-      title: Change your password
+      description: Su contraseña ha sido reestablecida, ingrese una nueva contraseña a continuacion
+      title: Cambiar contraseña.
     new:
-      description: To be emailed a link to reset your password, please enter
-        your email address.
-      title: Reset your password
+      description: Para recibir un link que le permita reestablecer su contraseña, ingrese su email a continuacion
+      title: Resetear su contraseña
   sessions:
     form:
-      forgot_password: Olvidaste tu contraseña?
-      sign_up: Sign up
+      forgot_password: ¿Olvidaste tu contraseña?
+      sign_up: Registrate
     new:
       title: Iniciar sesión
   users:
     new:
-      sign_in: Sign in
-      title: Sign up
+      sign_in: Iniciar sesión
+      title: Registrate

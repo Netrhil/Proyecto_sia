@@ -13,10 +13,11 @@ class OtrosController < ApplicationController
   end
 
   def create
-   @codotro = params[:otro ][:codotro];
-   @marca = params[:otro ][:marca];
-   @descripcion = params[:otro ][:descripcion];
-   @fechacompra = params[:otro ][:fechacompra];
+    @codeotro = params[:codequipo];
+    @marca = params[:marca];
+    @modelo = params[:modelo];
+    @descripcion = params[:descripcion];
+    @fechacompra = params[:fechacompra];
    #Creamos el objeto.
    @otro  = Otro.new({
       :codotro => @codotro,
@@ -60,6 +61,12 @@ class OtrosController < ApplicationController
        render "edit";
     end
  end
+
+ def baja
+   @equipo = Equipo.find(params[:id]);
+   @equipo.dar_baja = false
+ end
+
 
  def destroy
     @otro = Otro.find(params[:id]);

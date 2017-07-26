@@ -47,21 +47,23 @@ class EquiposController < ApplicationController
  end
 
  def update
-    @codequipo = params[:equipo ]["Codigo"];
-    @marca = params[:equipo ]["marca"];
-    @modelo = params[:equipo ]["modelo"];
-    @descripcion = params[:equipo ]["descripcion"];
-    @fechacompra = params[:equipo ]["Fecha de compra"];
+    @codequipo = params[:codequipo];
+    @marca = params[:marca];
+    @modelo = params[:modelo];
+    @descripcion = params[:descripcion];
+    @fechacompra = params[:fechacompra];
     @equipo = equipo.find(params[:id]);
     @equipo.codequipo = @codequipo;
     @equipo.marca = @marca;
+    @equipo.modelo = @modelo;
     @equipo.descripcion = @descripcion;
     @equipo.fechacompra = @fechacompra;
-    if @equipo.save()
-       redirect_to equipos_path, :notice => "El equipo ha sido modificado";
-    else
-       render "edit";
-    end
+
+ end
+
+ def baja
+   @equipo = Equipo.find(params[:id]);
+   @equipo.dar_baja = false
  end
 
  def destroy

@@ -67,6 +67,12 @@ class MueblesController < ApplicationController
     end
  end
 
+ def baja
+   @equipo = Equipo.find(params[:id]);
+   @equipo.dar_baja = false
+ end
+
+
  def destroy
     @mueble = Mueble.find(params[:id]);
     if @mueble.destroy()

@@ -18,10 +18,25 @@ Rails.application.routes.draw do
   get '/equipos', to: 'equipos#index'
   get "/equipos/nuevo", to: "equipos#new"
   post "/equipos" => "equipos#create"
+  get '/equipos/editar/:id', to: 'equipos#edit'
+  get '/equipos/darbaja/:id', to: 'equipos#baja'
+  get '/equipos/eliminar/:id', to: 'equipos#destroy'
 
+  #Rutas para muebles
   get '/muebles', to: 'muebles#index'
+  get "/muebles/nuevo", to: "muebles#new"
+  post "/muebles" => "muebles#create"
+  get '/muebles/editar/:id', to: 'muebles#edit'
+  get '/muebles/darbaja/:id', to: 'muebles#baja'
+  get '/muebles/eliminar/:id', to: 'muebles#destroy'
 
+  #Rutas para otros
   get '/otros', to: 'otros#index'
+  get "/otros/nuevo", to: "otros#new"
+  post "/otros" => "otros#create"
+  get '/otros/editar/:id', to: 'otros#edit'
+  get '/otros/darbaja/:id', to: 'otros#baja'
+  get '/otros/eliminar/:id', to: 'otros#destroy'
 
 
 end

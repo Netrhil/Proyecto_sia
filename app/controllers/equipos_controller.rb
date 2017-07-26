@@ -29,7 +29,7 @@ class EquiposController < ApplicationController
                 descripcion:@descripcion ,
                 fechacompra:@fechacompra )
 
-   redirect_to "/equipos"
+   redirect_to :action => "index"
 
   end
 
@@ -68,10 +68,7 @@ class EquiposController < ApplicationController
 
  def destroy
     @equipo = Equipo.find(params[:id]);
-    if @equipo.destroy()
-       redirect_to equipos_path, :notice => "El equipo ha sido eliminado";
-    else
-       redirect_to equipos_path, :notice => "El equipo NO ha podido ser eliminado";
-    end
+    @equipo.destroy()
+    redirect_to :action => "index"
  end
 end

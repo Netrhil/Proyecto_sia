@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/equipos/nuevo", to: "equipos#new"
   post "/equipos" => "equipos#create"
   get '/equipos/editar/:id', to: 'equipos#edit'
+  post "/equipos/editar/guardar" => "equipos#update"
   get '/equipos/darbaja/:id', to: 'equipos#baja'
   get '/equipos/eliminar/:id', to: 'equipos#destroy'
 

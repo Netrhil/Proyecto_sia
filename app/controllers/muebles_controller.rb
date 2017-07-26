@@ -5,7 +5,7 @@ class MueblesController < ApplicationController
   before_action :require_login
 
   def index
-     @muebles = Mueble.all();
+     @muebles = Mueble.where("dar_baja = false");
   end
 
   def new

@@ -5,7 +5,7 @@ class OtrosController < ApplicationController
   before_action :require_login
 
   def index
-     @otros = Otro.all();
+     @otros = Otro.where("dar_baja = false");
   end
 
   def new

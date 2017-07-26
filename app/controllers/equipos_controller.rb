@@ -5,7 +5,7 @@ class EquiposController < ApplicationController
   before_action :require_login
 
   def index
-     @equipos = Equipo.all();
+     @equipos = Equipo.where("dar_baja = false");
   end
 
   def new

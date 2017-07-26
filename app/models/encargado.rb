@@ -1,5 +1,5 @@
 class Encargado < ApplicationRecord
-    has_many :distribucions
+
 
     #Validar rut
     validates :rut, :presence => {:message => "Usted debe ingresar un rut"}, length: {minimum: 9, maximum: 10, :message => "El codigo debe tener entre 9 a 10 caracteres"}

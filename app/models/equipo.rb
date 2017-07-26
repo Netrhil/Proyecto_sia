@@ -1,5 +1,4 @@
 class Equipo < ApplicationRecord
-    belongs_to :distribucion
     #Validar codigo
     validates :codequip, :presence => {:message => "Usted debe ingresar un codigo valido"}, length: {minimum: 3, maximum: 50, :message => "El codigo debe tener entre 3 a 50 caracteres"}
     #validar marca

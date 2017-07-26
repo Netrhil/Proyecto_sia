@@ -13,15 +13,15 @@ class MueblesController < ApplicationController
   end
 
   def create
-   @codmue = params[:mueble ][:codmue];
-   @marca = params[:mueble ][:marca];
-   @largo = params[:mueble][:largo];
-   @ancho = params[:mueble][:ancho];
-   @descripcion = params[:mueble ][:descripcion];
-   @fechacompra = params[:mueble ][:fechacompra];
+   @codmue = params[:codmue];
+   @marca = params[:marca];
+   @largo = params[:largo];
+   @ancho = params[:ancho];
+   @descripcion = params[:descripcion];
+   @fechacompra = params[:fechacompra];
    #Creamos el objeto.
-   @mueble  = mueble.new({
-      :codequip => @codequip,
+   @mueble  = Mueble.new({
+      :codmue => @codmue,
       :marca => @marca,
       :largo => @largo,
       :ancho => @ancho,
@@ -42,9 +42,10 @@ class MueblesController < ApplicationController
 
  def edit
     @mueble = Mueble.find(params[:id]);
-    @codequip = @mueble.codequip;
+    @codmue = @mueble.codmue;
     @marca = @mueble.marca;
-    @modelo = @mueble.modelo;
+    @largo = @mueble.largo;
+    @ancho = @mueble.ancho;
     @descripcion = @mueble.descripcion;
     @fechacompra = @mueble.fechacompra;
  end
@@ -52,12 +53,15 @@ class MueblesController < ApplicationController
  def update
     @codmueble = params[:mueble ]["Codigo"];
     @marca = params[:mueble ]["marca"];
-    @modelo = params[:mueble ]["modelo"];
+    @largo = params[:mueble ]["largo"];
+    @ancho = params[:mueble ]["ancho"];
     @descripcion = params[:mueble ]["descripcion"];
     @fechacompra = params[:mueble ]["Fecha de compra"];
     @mueble = Mueble.find(params[:id]);
     @mueble.codmueble = @codmueble;
     @mueble.marca = @marca;
+    @mueble.largo = @largo;
+    @mueble.ancho = @ancho;
     @mueble.descripcion = @descripcion;
     @mueble.fechacompra = @fechacompra;
     if @mueble.save()
@@ -68,8 +72,8 @@ class MueblesController < ApplicationController
  end
 
  def baja
-   @equipo = Equipo.find(params[:id]);
-   @equipo.dar_baja = false
+   @mueble = Mueble.find(params[:id]);
+   @mueble.dar_baja = false
  end
 
 

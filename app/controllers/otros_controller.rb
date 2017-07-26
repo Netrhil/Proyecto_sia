@@ -1,4 +1,9 @@
 class OtrosController < ApplicationController
+
+  layout "application"
+
+  before_action :require_login
+
   def index
      @otros = Otro.all();
   end

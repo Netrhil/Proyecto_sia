@@ -1,16 +1,46 @@
-h2> Lista de muebles</h2>
-<p> <%= link_to "Crear nuevo Mueble", new_muebles_path %> </p>
-<ul>
-   <% @muebles.each do |t| %>
-   <li>
-      <h3> <%= t.codmue %> </h3>
-      <p>
-         <%= link_to "Ver", t %>
-         |
-         <%= link_to "Editar", edit_muebles_path(t) %>
-         |
-         <%= link_to "Eliminar", t, :confirm => "Seguro desea eliminar este mueble?", :method => :delete %>
-      </p>
-   </li>
-   <% end %>
-</ul>
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Listado de Muebles</h3>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <div class="row">
+              <div class="col-sm-12">
+            <%= link_to "equipos/nuevo" , class:"btn btn-success" do %>
+                Agregar Mueble <span class="fa fa-plus"></span>
+              <% end %>
+                <div class="card-box table-responsive">
+                  <table id="datatable" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+           </div>
+         </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <!-- /page content -->
+<script>
+
+</script>

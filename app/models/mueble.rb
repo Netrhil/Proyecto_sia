@@ -1,6 +1,6 @@
 class Mueble < ApplicationRecord
     belongs_to :distribucion
-    acts_as_paranoid
+    
     #Validar codigo
     validates :codmue, :presence => {:message => "Usted debe ingresar un codigo valido"}, length: {minimum: 3, maximum: 50, :message => "El codigo debe tener entre 3 a 50 caracteres"}
     #validar marca

@@ -1,4 +1,9 @@
 class MueblesController < ApplicationController
+
+  layout "application"
+
+  before_action :require_login
+
   def index
      @muebles = Mueble.all();
   end

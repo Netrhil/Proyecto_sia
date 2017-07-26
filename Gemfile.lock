@@ -41,7 +41,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    autoprefixer-rails (7.1.2.2)
+    autoprefixer-rails (7.1.2.3)
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -75,8 +75,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    datejs-rails (2.0.1)
-      railties (>= 3.1)
     email_validator (1.6.0)
       activemodel
     erubi (1.6.1)
@@ -89,11 +87,10 @@ GEM
       railties (>= 3.2, < 5.2)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
-    gentelella-rails (0.1.5)
+    gentelella-rails (0.1.8)
       bootstrap-daterangepicker-rails
       bootstrap-sass (~> 3.3.6)
       chart-js-rails
-      datejs-rails
       fastclick-rails
       flot-rails
       font-awesome-sass (~> 4.7.0)
@@ -133,7 +130,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
     multi_json (1.12.1)
@@ -212,7 +209,7 @@ GEM
       railties (>= 3.2, < 6.0)
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.8)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)

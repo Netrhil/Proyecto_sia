@@ -1,32 +1,36 @@
 class EquiposController < ApplicationController
+  layout "application"
+
+  #Solo permite el acceso cuando el usuario se halla logueado exitosamente
+  before_action :require_login
+
   def index
      @equipos = Equipo.all();
   end
 
   def new
-       @equipo = Equipo.new();
+     @equipo = Equipo.new();
   end
 
   def create
-   @codequipo = params[:equipo ][:codequipo];
-   @marca = params[:equipo ][:marca];
-   @modelo = params[:equipo][:modelo];
-   @descripcion = params[:equipo ][:descripcion];
-   @fechacompra = params[:equipo ][:fechacompra];
+
+   @codequipo = params[:codequipo];
+   @marca = params[:marca];
+   @modelo = params[:modelo];
+   @descripcion = params[:descripcion];
+   @fechacompra = params[:fechacompra];
+
+   puts YAML::dump(@codequipo)
+
    #Creamos el objeto.
-   @equipo  = equipo.new({
-      :codequip => @codequip,
-      :marca => @marca,
-      :modelo => @modelo,
-      :descripcion => @descripcion,
-      :fechacompra => @fechacompra
-   });
-   #Verificamos
-   if @equipo.save()
-      redirect_to equipos_path, :notice => "El equipo ha sido creado";
-   else
-      render "new";
-   end
+   Equipo.create(codequip:@codequipo,
+                marca:@marca,
+                modelo:@modelo ,
+                descripcion:@descripcion ,
+                fechacompra:@fechacompra )
+
+   redirect_to "/equipos"
+
   end
 
  def show

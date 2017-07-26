@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20170725194209) do
   end
 
   create_table "distribucions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "encargado_id"
+    t.integer "central_id"
     t.string "nombre"
     t.text "descripcion"
     t.datetime "created_at", null: false
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170725194209) do
   end
 
   create_table "equipos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "distribucion_id"
     t.string "codequip"
     t.string "marca"
     t.string "modelo"
@@ -43,12 +46,14 @@ ActiveRecord::Schema.define(version: 20170725194209) do
     t.datetime "fechacompra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
+    t.boolean "dar_baja", default: false
     t.index ["codequip"], name: "index_equipos_on_codequip", unique: true
-    t.index ["deleted_at"], name: "index_equipos_on_deleted_at"
+    t.index ["dar_baja"], name: "index_equipos_on_dar_baja"
+    t.index ["distribucion_id"], name: "index_equipos_on_distribucion_id"
   end
 
   create_table "muebles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "distribucion_id"
     t.string "codmue"
     t.string "marca"
     t.float "largo", limit: 24
@@ -57,21 +62,24 @@ ActiveRecord::Schema.define(version: 20170725194209) do
     t.datetime "fechacompra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
+    t.boolean "dar_baja", default: false
     t.index ["codmue"], name: "index_muebles_on_codmue", unique: true
-    t.index ["deleted_at"], name: "index_muebles_on_deleted_at"
+    t.index ["dar_baja"], name: "index_muebles_on_dar_baja"
+    t.index ["distribucion_id"], name: "index_muebles_on_distribucion_id"
   end
 
   create_table "otros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "distribucion_id"
     t.string "codotro"
     t.string "marca"
     t.text "descripcion"
     t.datetime "fechacompra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
+    t.boolean "dar_baja", default: false
     t.index ["codotro"], name: "index_otros_on_codotro", unique: true
-    t.index ["deleted_at"], name: "index_otros_on_deleted_at"
+    t.index ["dar_baja"], name: "index_otros_on_dar_baja"
+    t.index ["distribucion_id"], name: "index_otros_on_distribucion_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

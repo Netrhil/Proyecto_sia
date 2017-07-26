@@ -1,6 +1,6 @@
 class AddDeletedAtToMuebles < ActiveRecord::Migration[5.1]
   def change
-    add_column :muebles, :deleted_at, :datetime
-    add_index :muebles, :deleted_at
+    add_column :muebles, :dar_baja, :bool, :default => false
+    add_index :muebles, :dar_baja
   end
 end

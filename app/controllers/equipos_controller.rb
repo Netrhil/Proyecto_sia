@@ -52,7 +52,7 @@ class EquiposController < ApplicationController
     @modelo = params[:modelo];
     @descripcion = params[:descripcion];
     @fechacompra = params[:fechacompra];
-    @equipo = equipo.find(params[:id]);
+    @equipo = Equipo.find(params[:id]);
     @equipo.codequipo = @codequipo;
     @equipo.marca = @marca;
     @equipo.modelo = @modelo;

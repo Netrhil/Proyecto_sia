@@ -18,6 +18,8 @@ class OtrosController < ApplicationController
     @modelo = params[:modelo];
     @descripcion = params[:descripcion];
     @fechacompra = params[:fechacompra];
+
+    puts YAML::dump(@codotro)
    #Creamos el objeto.
    @otro  = Otro.new({
       :codotro => @codotro,
@@ -25,12 +27,7 @@ class OtrosController < ApplicationController
       :descripcion => @descripcion,
       :fechacompra => @fechacompra
    });
-   #Verificamos
-   if @otro.save()
-      redirect_to otros_path, :notice => "El articulo ha sido creado";
-   else
-      render "new";
-   end
+    redirect_to "/otros"
   end
 
  def show
@@ -46,22 +43,17 @@ class OtrosController < ApplicationController
  end
 
  def update
-    @codotro = params[:otro ]["Codigo"];
-    @marca = params[:otro ]["marca"];
-    @descripcion = params[:otro ]["descripcion"];
-    @fechacompra = params[:otro ]["Fecha de compra"];
+    @codotro = params[:codmue];
+    @marca = params[:marca];
+    @descripcion = params[:descripcion];
+    @fechacompra = params[:fechacompra];
     @otro = Otro.find(params[:id]);
     @otro.codotro = @codotro;
     @otro.marca = @marca;
     @otro.descripcion = @descripcion;
     @otro.fechacompra = @fechacompra;
-    if @otro.save()
-       redirect_to otros_path, :notice => "El articulo ha sido modificado";
-    else
-       render "edit";
-    end
  end
-
+ 
  def baja
    @equipo = Equipo.find(params[:id]);
    @equipo.dar_baja = false

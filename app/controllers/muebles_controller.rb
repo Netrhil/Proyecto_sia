@@ -13,27 +13,26 @@ class MueblesController < ApplicationController
   end
 
   def create
+
    @codmue = params[:codmue];
    @marca = params[:marca];
    @largo = params[:largo];
    @ancho = params[:ancho];
    @descripcion = params[:descripcion];
    @fechacompra = params[:fechacompra];
+
+   puts YAML::dump(@codmue)
+
    #Creamos el objeto.
-   @mueble  = Mueble.new({
-      :codmue => @codmue,
-      :marca => @marca,
-      :largo => @largo,
-      :ancho => @ancho,
-      :descripcion => @descripcion,
-      :fechacompra => @fechacompra
-   });
-   #Verificamos
-   if @mueble.save()
-      redirect_to muebles_path, :notice => "El mueble ha sido creado";
-   else
-      render "new";
-   end
+   Mueble.create(codmue:@codmue,
+                marca:@marca,
+                largo:@largo ,
+                ancho:@ancho ,
+                descripcion:@descripcion ,
+                fechacompra:@fechacompra )
+
+   redirect_to "/muebles"
+
   end
 
  def show
@@ -51,24 +50,19 @@ class MueblesController < ApplicationController
  end
 
  def update
-    @codmueble = params[:mueble ]["Codigo"];
-    @marca = params[:mueble ]["marca"];
-    @largo = params[:mueble ]["largo"];
-    @ancho = params[:mueble ]["ancho"];
-    @descripcion = params[:mueble ]["descripcion"];
-    @fechacompra = params[:mueble ]["Fecha de compra"];
-    @mueble = Mueble.find(params[:id]);
-    @mueble.codmueble = @codmueble;
+    @codmue = params[:codmue];
+    @marca = params[:marca];
+    @largo = params[:largo];
+    @ancho = params[:ancho];
+    @descripcion = params[:descripcion];
+    @fechacompra = params[:fechacompra];
+    @mueble = mueble.find(params[:id]);
+    @mueble.codmueble = @codmue;
     @mueble.marca = @marca;
     @mueble.largo = @largo;
-    @mueble.ancho = @ancho;
     @mueble.descripcion = @descripcion;
     @mueble.fechacompra = @fechacompra;
-    if @mueble.save()
-       redirect_to muebles_path, :notice => "El mueble ha sido modificado";
-    else
-       render "edit";
-    end
+
  end
 
  def baja

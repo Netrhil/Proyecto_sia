@@ -14,24 +14,24 @@ class MueblesController < ApplicationController
 
   def create
 
-   @codmue = params[:codmue];
+   @codmueble = params[:codmueble];
    @marca = params[:marca];
    @largo = params[:largo];
    @ancho = params[:ancho];
    @descripcion = params[:descripcion];
    @fechacompra = params[:fechacompra];
 
-   puts YAML::dump(@codmue)
+   puts YAML::dump(@codmueble)
 
    #Creamos el objeto.
-   Mueble.create(codmue:@codmue,
+   Mueble.create(codmue:@codmueble,
                 marca:@marca,
                 largo:@largo ,
                 ancho:@ancho ,
                 descripcion:@descripcion ,
                 fechacompra:@fechacompra )
 
-   redirect_to "/muebles"
+   redirect_to :action => "index"
 
   end
 
@@ -50,13 +50,13 @@ class MueblesController < ApplicationController
  end
 
  def update
-    @codmue = params[:codmue];
+    @codmueble = params[:codmueble];
     @marca = params[:marca];
     @largo = params[:largo];
     @ancho = params[:ancho];
     @descripcion = params[:descripcion];
     @fechacompra = params[:fechacompra];
-    @mueble = mueble.find(params[:id]);
+    @mueble = Mueble.find(params[:id]);
     @mueble.codmueble = @codmue;
     @mueble.marca = @marca;
     @mueble.largo = @largo;
@@ -73,10 +73,7 @@ class MueblesController < ApplicationController
 
  def destroy
     @mueble = Mueble.find(params[:id]);
-    if @mueble.destroy()
-       redirect_to muebles_path, :notice => "El mueble ha sido eliminado";
-    else
-       redirect_to muebles_path, :notice => "El mueble NO ha podido ser eliminado";
-    end
+    @mueble.destroy()
+    redirect_to :action => "index"
  end
 end

@@ -38,9 +38,9 @@
                         <div class="btn-toolbar margin-bottom-10">
                           <div class="btn-group btn-group-sm btn-group-solid">
 
-                              <a href="#" title="Editar" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                              <a href="/muebles/editar/<%= mueble.id %>" title="Editar" class="btn btn-warning"><i class="fa fa-edit"></i></a>
 
-                              <a class="btn btn-danger delete-data" title="Eliminar" data-role="" ><i class="fa fa-trash-o"></i></a>
+                              <a id="<%= mueble.id %>" class="btn btn-danger delete-data eliminar" title="Eliminar" ><i class="fa fa-trash-o"></i></a>
 
                           </div>
                         </div>
@@ -59,7 +59,53 @@
         </div>
         </div>
       </div>
+      
+           <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
+            <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h3 class="modal-title text-center" id="myModalLabel2">Eliminar mueble</h3>
+                        </div>
+                        <div class="modal-body">
+                          <h4>Esta seguro que desea eliminar este mueble?</h4>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+                          <button id="confirmar-eliminar" type="button" class="btn btn-danger">Elminar</button>
+                        </div>
+
+                      </div>
+                    </div>
+          </div>
+
+      </div>     
       <!-- /page content -->
 <script>
+$('#myModal').on('show', function() {
+    var id = $(this).data('id'),
+        removeBtn = $(this).find('.danger');
+})
+
+$('.eliminar').on('click', function(e) {
+    var id = $(this).attr('id');
+    $('#myModal').data('id', id).modal('show');
+
+});
+
+$('#confirmar-eliminar').click(function(){
+    var id = $("#myModal").data('id');
+    $.ajax({
+        url: "/muebles/eliminar/" + id,
+        type: "get",
+        data: id,
+        success: function (data) {
+          window.location.replace("http://localhost:3000/muebles");
+          }
+      });
+});
 
 </script>
+

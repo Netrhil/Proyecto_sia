@@ -13,21 +13,21 @@ class OtrosController < ApplicationController
   end
 
   def create
-    @codeotro = params[:codequipo];
+    @codeotro = params[:codeotro];
     @marca = params[:marca];
     @modelo = params[:modelo];
     @descripcion = params[:descripcion];
     @fechacompra = params[:fechacompra];
 
-    puts YAML::dump(@codotro)
+    puts YAML::dump(@codeotro)
    #Creamos el objeto.
-   @otro  = Otro.new({
-      :codotro => @codotro,
+    Otro.create(
+      :codotro => @codeotro,
       :marca => @marca,
       :descripcion => @descripcion,
-      :fechacompra => @fechacompra
-   });
-    redirect_to "/otros"
+      :fechacompra => @fechacompra )
+
+    redirect_to :action => "index"
   end
 
  def show
@@ -43,29 +43,26 @@ class OtrosController < ApplicationController
  end
 
  def update
-    @codotro = params[:codmue];
+    @codeotro = params[:codeotro];
     @marca = params[:marca];
     @descripcion = params[:descripcion];
     @fechacompra = params[:fechacompra];
     @otro = Otro.find(params[:id]);
-    @otro.codotro = @codotro;
+    @otro.codeotro = @codeotro;
     @otro.marca = @marca;
     @otro.descripcion = @descripcion;
     @otro.fechacompra = @fechacompra;
  end
- 
+
  def baja
-   @equipo = Equipo.find(params[:id]);
-   @equipo.dar_baja = false
+   @otro = Otro.find(params[:id]);
+   @otro.dar_baja = false
  end
 
 
  def destroy
     @otro = Otro.find(params[:id]);
-    if @otro.destroy()
-       redirect_to otros_path, :notice => "El articulo ha sido eliminado";
-    else
-       redirect_to otros_path, :notice => "El articulo NO ha podido ser eliminado";
-    end
+    @otro.destroy()
+    redirect_to :action => "index"
  end
 end
